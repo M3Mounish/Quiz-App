@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Question() {
+function Question(props) {
     return (
         <div className='main-div'>
-            <h3 className='question'>Best consumer-grade graphics card.</h3>
+            <h3 className='question'>{props.question}</h3>
         </div>
     );
 }

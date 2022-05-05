@@ -5,7 +5,7 @@ function Result(props) {
 
     return (
         <div>
-            <h3 className='result'>{props.result ? "Correct" : null}</h3>
+            <h3 className='result'>{props.result}</h3>
         </div>
     );
 }
