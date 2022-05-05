@@ -5,9 +5,10 @@ import Question from "./title-question";
 
 function Qnumber(props) {
 
-
+    // middle-man for passing values form callback.
     function noName(params, score) {
         props.fun(params, score);
+
 
     }
     return (

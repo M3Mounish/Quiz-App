@@ -8,15 +8,16 @@ function Option(props) {
     const [score, setScore] = useState(0);
 
     function handleClick() {
-        // props.answer ? alert("yup") : alert("nope")
+        // const clickSound = new Audio('click.mp3')
+        // clickSound.play();
         if (props.answer === true) {
             setScore(score + 1);
-            props.fun(true, score);
+            props.fun(true, "yes");
         } else if (props.answer === false) {
-            setScore(score);
-            props.fun(false, score);
+            props.fun(false, "no");
+
         }
-        // console.log(score);
+
     }
 
 
@@ -30,4 +31,3 @@ function Option(props) {
 }
 
 export default Option;
-// style={{ backgroundColor: isTrue ? "green" : null }}

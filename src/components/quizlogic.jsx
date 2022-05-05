@@ -3,19 +3,15 @@ import Header from "./header";
 import Qnumber from './questions';
 import Score from './score';
 
-function Quiz(props) {
+function Quiz() {
 
     const [questNo, setQuestNo] = useState(0);
     const [score, setScore] = useState(0);
 
-    function noName(params, scoreC) {
-        setQuestNo(questNo + 1)
-        console.log(score);
-        setScore(scoreC);
-        console.log(score);
-
+    function noName(params) {
+        setQuestNo(questNo + 1);
+        params === true && setScore(score + 1);
     }
-    // console.log(questNo);
 
     return (
         <div>
@@ -47,11 +43,15 @@ function Quiz(props) {
 
             />}
 
+
+            {/* score */}
             {questNo > 3 && <Score score={score} />}
 
             {/* current question */}
             <span className='span'><span>{questNo}</span>/3</span>
-            {questNo > 3 && <button onClick={() => { setQuestNo(1) }} className="retake">Retake</button>}
+
+            {/* retake */}
+            {questNo > 3 && <button onClick={() => { setQuestNo(1); setScore(0); }} className="retake">Retake</button>}
         </div>
     );
 }
