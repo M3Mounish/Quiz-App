@@ -2,15 +2,20 @@ import React, { useState } from 'react';
 import Header from "./header";
 import Qnumber from './questions';
 import Score from './score';
+import Q from '../questions.json';
 
 function Quiz() {
 
     const [questNo, setQuestNo] = useState(0);
     const [score, setScore] = useState(0);
+    const keyCount = Object.keys(Q);
+    console.log(keyCount.length);
 
     function noName(params) {
         setQuestNo(questNo + 1);
         params === true && setScore(score + 1);
+        // console.log(Q.q1.question);
+
     }
 
     return (
@@ -21,24 +26,24 @@ function Quiz() {
             {questNo === 0 && <button className='startBtn' onClick={() => { setQuestNo(1) }}>Start</button>}
 
             {questNo === 1 && <Qnumber
-                question={"Best consumer-grade graphics card."}
-                optionName={["GTX Titan", "GeForce Quadro", "RTX 3090Ti", "RX 900XT"]}
-                answer={[false, false, true, false]}
+                question={Q.q1.question}
+                optionName={Q.q1.optionName}
+                answer={Q.q1.answer}
                 fun={noName}
             />}
 
             {questNo === 2 && <Qnumber
-                question={"Data rate range of DDR5"}
-                optionName={["4800-7200 Mhz", "5000-6000 Mhz", "4800-8800 Mhz", "5000-12000 Mhz"]}
-                answer={[true, false, false, false]}
+                question={Q.q2.question}
+                optionName={Q.q2.optionName}
+                answer={Q.q2.answer}
                 fun={noName}
 
             />}
 
             {questNo === 3 && <Qnumber
-                question={"Microarchitecture of Nvidia RTX 3000 series"}
-                optionName={["Pascal", "Alder Lake", "Ampere", "Turing"]}
-                answer={[false, false, true, false]}
+                question={Q.q3.question}
+                optionName={Q.q3.optionName}
+                answer={Q.q3.answer}
                 fun={noName}
 
             />}
