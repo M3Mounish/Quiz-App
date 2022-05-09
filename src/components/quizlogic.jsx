@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import Header from "./header";
+import Header from "./Header";
 import Qnumber from './questions';
-import Score from './score';
+import Score from './Score';
 import Q from '../questions.json';
 
 function Quiz() {
 
     const [questNo, setQuestNo] = useState(0);
     const [score, setScore] = useState(0);
+
+
     const keyCount = Object.keys(Q);
     console.log(keyCount.length);
 
     function noName(params) {
         setQuestNo(questNo + 1);
         params === true && setScore(score + 1);
-        // console.log(Q.q1.question);
 
     }
 
@@ -53,10 +54,12 @@ function Quiz() {
             {questNo > 3 && <Score score={score} />}
 
             {/* current question */}
-            <span className='span'><span>{questNo}</span>/3</span>
+            {questNo < 4 && <span className='span'><span>{questNo}</span>/3</span>}
 
             {/* retake */}
             {questNo > 3 && <button onClick={() => { setQuestNo(1); setScore(0); }} className="retake">Retake</button>}
+
+
         </div>
     );
 }
