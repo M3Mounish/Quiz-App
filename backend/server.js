@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require("cors");
+require('dotenv').config()
 const PORT = process.env.PORT || 3333;
 
 const app = express();
@@ -10,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 //
-mongoose.connect('mongodb+srv://M3:m3-mongodb@cluster0.sykgz.mongodb.net/Quiz-App?retryWrites=true&w=majority');
+mongoose.connect(process.env.MONGOOSE_URL);
 
 const userSchema = mongoose.Schema({
     username: String,

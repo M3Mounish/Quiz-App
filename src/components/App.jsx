@@ -14,27 +14,33 @@ function App() {
 
   //user
   const [user, setUser] = useState(false);
-
+  const [username, setUsername] = useState('');
   //   useEffect(() => {
   //     axios.get("http://localhost:3333/home").then(function (response) {
   //         setHome(response.data)
   //     })
   // }, [])
+  function cB(data) {
+
+    data == 'y' && setUser(!user);
+    console.log(user);
+
+  }
 
   return (
     <div>
       <div className="navbar">
         <header>Quiz App</header>
         <Homelogo className='home-logo' onClick={() => { setHome(true); setLogin(false); }} />
-        {!user ? <button className="login-btn" onClick={() => { setLogin(true) }}>Login</button> : null}
+        {!user ? <button className="login-btn" onClick={() => { setLogin(true) }}>Login</button> : <button>Nothing</button>}
       </div>
       {home && <Home />}
-      {!home && <Quiz />}
+      {/* {!home && <Quiz />} */}
 
+      <p>Nothing .... Ever walk away... i'll never walk on cornelia street agian!</p>
+      {/* {home && !login && <button onClick={() => { setHome(false) }}>Quiz 1</button>} */}
 
-      {home && !login && <button onClick={() => { setHome(false) }}>Quiz 1</button>}
-
-      {login ? home && <Login /> : null}
+      {login && home && <Login user={cB} />}
     </div>
   )
 }

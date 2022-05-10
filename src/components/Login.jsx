@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from "axios";
 
-import Register from './Register';
+import Register from './Signup';
 
-function Login() {
+function Login(props) {
     // inputs
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -18,6 +18,9 @@ function Login() {
             .then(function (response) {
                 console.log(response);
                 response && setLoggedIn(true);
+                response && props.user('y');
+
+
             })
 
             .catch(function (error) {
