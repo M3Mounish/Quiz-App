@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Option from "./Option";
-import Question from "./title-question";
+import Question from "./Title-question";
 // import Result from "./result";
 
 function Qnumber(props) {
