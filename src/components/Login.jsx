@@ -8,7 +8,7 @@ function Login(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     //user 
-    const [loggedIn, setLoggedIn] = useState(false);
+    // const [loggedIn, setLoggedIn] = useState(false);
     //trigger
     const [register, setRegister] = useState(false);
 
@@ -17,10 +17,15 @@ function Login(props) {
         await axios.post('http://localhost:3333/login', { username, password })
             .then(function (response) {
                 console.log(response);
-                response && setLoggedIn(true);
-                response && props.user('y');
+                if (response.data === false) {
+                    alert("Inputs are wrong whoeveryouare!");
+                } else if (response.status === 200 && response.data !== false) {
 
-
+                    console.log(response.data[0].username);
+                    alert("Going good here!");
+                    props.user('y', response.data[0].username);
+                }
+                // response.data && alert("Every thing is alright");
             })
 
             .catch(function (error) {

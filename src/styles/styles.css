@@ -13,9 +13,13 @@ div.main-div {
     text-align: center;
 }
 
-header {
+h2 {
     font-family: Georgia, Times, serif;
     font-size: 1.3rem;
+    text-align: center;
+    display: inline-block;
+    align-items: center;
+    margin-left: 8.3rem;
     /* margin-top: 0.9rem; */
 }
 
@@ -110,13 +114,14 @@ header {
     /* aspect-ratio: 1, 1; */
     filter: brightness(0) invert(0.9);
     max-width: 2.3%;
-    right: 53%;
+    right: 56%;
     top: 3%;
     margin-top: 0.3rem;
 }
 
 .navbar {
     padding: 0.3rem 1rem;
+    text-align: center;
 }
 
 header {
@@ -184,5 +189,55 @@ header {
     color: rgb(233, 233, 233);
     /* text-shadow: 3rem; */
     font-weight: 300;
+
+}
+
+.profile-btn {
+    position: relative;
+    left: 26%;
+    top: 3%;
+    margin-top: 0.3rem;
+    padding: 0.23rem 0.3rem;
+    color: aliceblue;
+    border-radius: 0.13rem;
+    background-color: transparent;
+    /* align-items: center; */
+    text-align: center;
+    display: inline-block;
+    margin-bottom: -3px;
+    margin-right: 4px;
+    min-width: 16%;
+
+}
+
+.profile-btn:hover {
+    box-shadow: 0.03rem 0.03rem 0.06rem 0.06rem #c1c1c2;
+
+}
+
+.reset-container {
+    text-align: center;
+}
+
+.reset-input {
+    background-color: transparent;
+    color: aliceblue;
+    border: transparent;
+    border-radius: 0.03rem;
+    display: block;
+    min-width: 39%;
+    min-height: 0.3rem;
+    padding: 0.3rem 0;
+    margin: 1.3rem auto;
+}
+
+.user-logo {
+    filter: brightness(0) invert(0.93);
+    max-width: 13%;
+    margin-right: 0.3rem;
+    /* position: relative;
+    bottom: 20%;*/
+
+    /* margin-top: 50; */
 
 }

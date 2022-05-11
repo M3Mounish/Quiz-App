@@ -56,9 +56,33 @@ app.post('/login', async (req, res) => {
     User.find({ username: username, password: password }, (err, user) => {
         if (err) {
             console.log(err);
+        } else {
+            if (user == false) {
+                console.log("false");
+                res.send(false);
+            } else {
+                res.send(user);
+                // res.sendStatus(200)
+
+                console.log(user);
+            }
+
         }
-        res.send(user.status);
-        // console.log(user);
+
+    })
+})
+
+app.post('/reset-password', (req, res) => {
+    const { oldPassword, newPassword } = req.body;
+
+    User.findOneAndUpdate({ password: oldPassword }, { password: newPassword }, (err, dox) => {
+        if (dox === null) {
+            res.send(false);
+            console.log(dox);
+        } else if (dox != null) {
+            console.log(dox);
+            res.send(true);
+        }
     })
 })
 

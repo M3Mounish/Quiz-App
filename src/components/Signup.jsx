@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useHook } from 'react';
 import axios from 'axios';
 
 
@@ -14,7 +14,7 @@ function Register() {
             username, password
         })
             .then(function (response) {
-                if (response.data == "none") {
+                if (response.data === "none") {
                     alert("Not filled completely ;(")
                 }
                 !response.data && alert("Username already exists!");
@@ -24,9 +24,13 @@ function Register() {
             .catch(function (error) {
                 console.log(error);
             })
-        await setUsername('');
-        await setPassword('');
+        setUsername('');
+        setPassword('');
     }
+
+    // useHook(() => {
+
+    // })
 
     return (
         <div className="form">
