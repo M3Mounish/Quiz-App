@@ -47,7 +47,7 @@ function App() {
       <div className="navbar">
         <h2>Quiz App</h2>
         <Homelogo className='home-logo' onClick={() => { setHome(1); }} />
-        {!user ? <button className="login-btn profile-btn" onClick={() => { setHome(2) }}>Login</button> : <button className="profile-btn" onClick={handleProfile}><Userlogo className="user-logo" />{profileName}</button>}
+        {!user ? <button className="login-btn" onClick={() => { setHome(2) }}>Login</button> : <button className="profile-btn" onClick={handleProfile}><Userlogo className="user-logo" />{profileName}</button>}
       </div>
       {home === 1 && <Home />}
       {/* {!home && <Quiz />} */}

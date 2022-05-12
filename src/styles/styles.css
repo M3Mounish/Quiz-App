@@ -109,11 +109,16 @@ h2 {
 
 }
 
+/* home */
+header {
+    display: inline-block;
+}
+
 .home-logo {
     position: relative;
     filter: brightness(0) invert(0.9);
     max-width: 2.3%;
-    right: 53%;
+    right: 56%;
     top: 3%;
     margin-top: 0.3rem;
 }
@@ -123,11 +128,36 @@ h2 {
     text-align: center;
 }
 
-header {
+
+.profile-btn {
+    position: relative;
+    left: 29%;
+    top: 3%;
+    margin-top: 0.3rem;
+    padding: 0.23rem 0.3rem;
+    color: aliceblue;
+    border-radius: 0.13rem;
+    background-color: transparent;
+    /* align-items: center; */
+    text-align: center;
     display: inline-block;
+    margin-bottom: -3px;
+    margin-right: 4px;
+    min-width: 16%;
+}
+
+.profile-btn:hover {
+    box-shadow: 0.03rem 0.03rem 0.06rem 0.06rem #c1c1c2;
+}
+
+.user-logo {
+    filter: brightness(0) invert(0.93);
+    max-width: 13%;
+    margin-right: 0.3rem;
 }
 
 
+/* forms */
 .form {
     margin-top: 3rem;
     text-align: center;
@@ -175,22 +205,21 @@ header {
     font-weight: 100;
 }
 
+/* login */
 .login-redirect-btn {
     background-color: transparent;
     color: rgb(209, 213, 216);
     font-size: xx-small;
     font-weight: 100;
-
 }
 
 .login-redirect-btn:hover {
     color: rgb(233, 233, 233);
     /* text-shadow: 3rem; */
     font-weight: 300;
-
 }
 
-.profile-btn {
+.login-btn {
     position: relative;
     left: 29%;
     top: 3%;
@@ -199,20 +228,17 @@ header {
     color: aliceblue;
     border-radius: 0.13rem;
     background-color: transparent;
-    /* align-items: center; */
     text-align: center;
     display: inline-block;
-    margin-bottom: -3px;
-    margin-right: 4px;
-    min-width: 16%;
-
+    min-width: 9%;
 }
 
-.profile-btn:hover {
+.login-btn:hover {
     box-shadow: 0.03rem 0.03rem 0.06rem 0.06rem #c1c1c2;
 
 }
 
+/* profile */
 .reset-container {
     text-align: center;
 }
@@ -227,15 +253,4 @@ header {
     min-height: 0.3rem;
     padding: 0.3rem 0;
     margin: 1.3rem auto;
-}
-
-.user-logo {
-    filter: brightness(0) invert(0.93);
-    max-width: 13%;
-    margin-right: 0.3rem;
-    /* position: relative;
-    bottom: 20%;*/
-
-    /* margin-top: 50; */
-
 }
