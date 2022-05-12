@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
 
 import Register from './Signup';
@@ -7,31 +7,52 @@ function Login(props) {
     // inputs
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    //user 
-    // const [loggedIn, setLoggedIn] = useState(false);
     //trigger
     const [register, setRegister] = useState(false);
+
+    const [logUsername, setLogUsername] = useState('');
 
     async function handleLogin(e) {
         e.preventDefault();
         await axios.post('http://localhost:3333/login', { username, password })
             .then(function (response) {
-                console.log(response);
+                // console.log(response);
                 if (response.data === false) {
                     alert("Inputs are wrong whoeveryouare!");
                 } else if (response.status === 200 && response.data !== false) {
-
-                    console.log(response.data[0].username);
+                    setUsername(''); setPassword('');
+                    // console.log(response.data[0].username);
                     alert("Going good here!");
-                    props.user('y', response.data[0].username);
-                }
-                // response.data && alert("Every thing is alright");
-            })
 
+                    props.user('y', response.data[0].username, 1);
+                    console.log("default");
+                    localStorage.setItem('user', response.data[0].username);
+
+
+
+                }
+            })
             .catch(function (error) {
                 console.log(error);
             })
+    }
 
+    // useEffect(() => {
+    //     const loggedInUser = localStorage.getItem('user');
+    //     console.log(loggedInUser, "this");
+    //     setLogUsername(loggedInUser);
+    //     console.log(logUsername);
+    //     if (loggedInUser != null) {
+    //         console.log(logUsername);
+    //         props.user('y', loggedInUser, 1);
+    //     }
+    // })
+
+    function cB(data, username, redirect) {
+        // setProfileName(username);
+        // data === 'y' && setUser(true, () => { console.log(user); });
+        // redirect === 1 && setHome(1);
+        // console.log(profileName);
     }
 
     return (
@@ -45,7 +66,7 @@ function Login(props) {
                 </form>
                 <button className='login-redirect-btn' onClick={() => { setRegister(true) }}>New?Signup</button>
             </div>}
-            {register && <Register />}
+            {register && <Register user={cB} />}
         </div>
 
     );

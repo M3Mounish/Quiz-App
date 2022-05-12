@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+//components
 import Home from "./Home";
 import Quiz from "./Quiz";
 import Login from "./Login";
@@ -11,26 +11,36 @@ import { ReactComponent as Userlogo } from '../assets/user-solid.svg';
 function App() {
   //hide/show
   const [home, setHome] = useState(1);//1-home 2-login 3-Profile
-  const [login, setLogin] = useState(true);
-
   //user
   const [user, setUser] = useState(false);
   const [profileName, setProfileName] = useState('');
 
-  //   useEffect(() => {
-  //     axios.get("http://localhost:3333/home").then(function (response) {
-  //         setHome(response.data)
-  //     })
-  // }, [])
-  function cB(data, username) {
+  function cB(data, username, redirect) {
     setProfileName(username);
     data === 'y' && setUser(true, () => { console.log(user); });
+    redirect === 1 && setHome(1);
 
-    console.log(profileName);
   }
   function handleProfile() {
     setHome(3);
   }
+  function handlelogOut(userState) {
+    setUser(userState);
+    setHome(1);
+    localStorage.clear();
+    console.log(user);
+  }
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('user');
+    // console.log(loggedInUser, "this");
+    setProfileName(loggedInUser);
+    // console.log(profileName);
+    if (loggedInUser != null) {
+      setUser(true);
+      setHome(1);
+      // console.log(home, user);
+    }
+  }, [setHome])
 
   return (
     <div>
@@ -47,7 +57,7 @@ function App() {
 
       {home === 2 && <Login user={cB} />}
 
-      {home === 3 && <Profile username={profileName} />}
+      {home === 3 && <Profile username={profileName} cb={handlelogOut} />}
     </div>
 
   )

@@ -26,9 +26,9 @@ function Profile(props) {
                     <input className="reset-input" type="password" value={reNewPassword} onChange={(e) => setReNewPassword(e.target.value)} placeholder='reenter new password' />
                     <button >Reset</button>
                 </form>
-
             </div>}
 
+            <button className="logout-btn" onClick={() => { props.cb(false) }}>Log Out</button>
         </div>
 
     );

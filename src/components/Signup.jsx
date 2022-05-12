@@ -2,7 +2,7 @@ import React, { useState, useHook } from 'react';
 import axios from 'axios';
 
 
-function Register() {
+function Register(props) {
     //input
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -10,27 +10,24 @@ function Register() {
     async function handleSignup(e) {
         e.preventDefault();
 
-        await axios.post('http://localhost:3333/register', {
-            username, password
-        })
+        await axios.post('http://localhost:3333/register', { username, password })
             .then(function (response) {
                 if (response.data === "none") {
                     alert("Not filled completely ;(")
+                } else {
+                    if (response.data === false) {
+                        alert("Username already exists!");
+                    } else if (response.status === 200 && response.data !== false) {
+                        setUsername(''); setPassword('');
+                        console.log(response.data[0].username);
+                        alert("Signup successully!");
+                        props.user('y', response.data[0].username, 1);
+
+                    }
                 }
-                !response.data && alert("Username already exists!");
-
             })
-
-            .catch(function (error) {
-                console.log(error);
-            })
-        setUsername('');
-        setPassword('');
     }
 
-    // useHook(() => {
-
-    // })
 
     return (
         <div className="form">

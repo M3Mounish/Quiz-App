@@ -32,21 +32,16 @@ app.post('/register', async (req, res) => {
                 console.log("Working bitch");
                 console.log(user);
                 res.send(false);
-
-
             } else {
                 User.insertMany({
                     username: username,
                     password: password
                 });
                 console.log("added");
-
+                res.send(user)
             }
         })
     }
-
-
-
 });
 
 app.post('/login', async (req, res) => {
@@ -63,7 +58,6 @@ app.post('/login', async (req, res) => {
             } else {
                 res.send(user);
                 // res.sendStatus(200)
-
                 console.log(user);
             }
 
