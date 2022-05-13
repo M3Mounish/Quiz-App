@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 //components
 import Home from "./Home";
-import Quiz from "./Quiz";
+import Quiz from "./quiz/Quiz";
 import Login from "./Login";
 import Profile from "./Profile";
 //assets {icons}
 import { ReactComponent as Homelogo } from '../assets/house-solid.svg';
 import { ReactComponent as Userlogo } from '../assets/user-solid.svg';
+import axios from "axios";
 
 function App() {
   //hide/show
@@ -14,6 +15,12 @@ function App() {
   //user
   const [user, setUser] = useState(false);
   const [profileName, setProfileName] = useState('');
+
+  axios.get('http://localhost:3333/')
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => { console.log(err); })
 
   function cB(data, username, redirect) {
     setProfileName(username);

@@ -19,12 +19,12 @@ function Register(props) {
                         alert("Username already exists!");
                     } else if (response.status === 200 && response.data !== false) {
                         setUsername(''); setPassword('');
-                        console.log(response.data[0].username);
+                        // console.log(response.data[0].username);
                         alert("Signup successully!");
-                        props.user('y', response.data[0].username, 1);
-
+                        // props.user('y', response.data[0].username, 1);
                     }
                 }
+                console.log(response);
             })
     }
 

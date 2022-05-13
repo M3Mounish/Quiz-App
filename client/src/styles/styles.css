@@ -118,7 +118,7 @@ header {
     position: relative;
     filter: brightness(0) invert(0.9);
     max-width: 2.3%;
-    right: 56%;
+    right: 53%;
     top: 3%;
     margin-top: 0.3rem;
 }
@@ -131,7 +131,7 @@ header {
 
 .profile-btn {
     position: relative;
-    left: 29%;
+    left: 26%;
     top: 3%;
     margin-top: 0.3rem;
     padding: 0.23rem 0.3rem;

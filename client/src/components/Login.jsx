@@ -10,13 +10,13 @@ function Login(props) {
     //trigger
     const [register, setRegister] = useState(false);
 
-    const [logUsername, setLogUsername] = useState('');
+
 
     async function handleLogin(e) {
         e.preventDefault();
         await axios.post('http://localhost:3333/login', { username, password })
             .then(function (response) {
-                // console.log(response);
+                console.log(response);
                 if (response.data === false) {
                     alert("Inputs are wrong whoeveryouare!");
                 } else if (response.status === 200 && response.data !== false) {
@@ -27,9 +27,6 @@ function Login(props) {
                     props.user('y', response.data[0].username, 1);
                     console.log("default");
                     localStorage.setItem('user', response.data[0].username);
-
-
-
                 }
             })
             .catch(function (error) {

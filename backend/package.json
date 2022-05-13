@@ -10,11 +10,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "engines": {
-    "node": "16.14.2"
-  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.0"
+  },
+  "engines": {
+    "node": "16.14.2"
   }
 }

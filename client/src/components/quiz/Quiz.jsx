@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Header from "./Header";
+import Header from "../Header";
 import Qnumber from './questions';
 import Score from './Score';
-import Q from '../questions.json';
+import Q from '../../questions.json';
 
 function Quiz() {
 

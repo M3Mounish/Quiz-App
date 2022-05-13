@@ -3,15 +3,15 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require("cors");
 require('dotenv').config()
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3333;
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true, }));
 app.use(express.json());
 app.use(cors());
 
-//
-mongoose.connect(MONGOOSE_URL || process.env.MONGOOSE_URL);
+
+mongoose.connect(process.env.MONGOOSE_URL);
 
 const userSchema = mongoose.Schema({
     username: String,
@@ -38,12 +38,12 @@ app.post('/register', async (req, res) => {
                     password: password
                 });
                 console.log("added");
-                res.send(user)
+                res.send(user);
             }
         })
     }
 });
-app.get('/', (req, res) => { res.send("Fuck") })
+
 app.post('/login', async (req, res) => {
     let { username } = req.body;
     let { password } = req.body;
@@ -64,7 +64,7 @@ app.post('/login', async (req, res) => {
         }
 
     })
-})
+});
 
 app.post('/reset-password', (req, res) => {
     const { oldPassword, newPassword } = req.body;
@@ -78,7 +78,7 @@ app.post('/reset-password', (req, res) => {
             res.send(true);
         }
     })
-})
+});
 
 
 app.listen(PORT, () => { console.log("Good on port"); })
