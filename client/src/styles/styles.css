@@ -7,6 +7,7 @@ body {
 h1 {
     margin-top: 3rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
 }
 
 div.main-div {
@@ -15,13 +16,14 @@ div.main-div {
 
 h2 {
     font-family: Georgia, Times, serif;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     text-align: center;
-    display: inline-block;
+    /* display: inline-block; */
     align-items: center;
-    margin-left: 8.3rem;
-    /* margin-top: 0.9rem; */
+    margin: auto;
+    margin-top: 0.9rem;
 }
+
 
 .btn {
     padding: 0.6rem 3.3rem;
@@ -115,11 +117,11 @@ header {
 }
 
 .home-logo {
-    position: relative;
+    position: absolute;
     filter: brightness(0) invert(0.9);
     max-width: 2.3%;
-    right: 53%;
-    top: 3%;
+    right: 93%;
+    top: 4%;
     margin-top: 0.3rem;
 }
 
@@ -130,20 +132,18 @@ header {
 
 
 .profile-btn {
-    position: relative;
-    left: 26%;
+    position: absolute;
+    left: 79%;
     top: 3%;
     margin-top: 0.3rem;
     padding: 0.23rem 0.3rem;
     color: aliceblue;
     border-radius: 0.13rem;
     background-color: transparent;
-    /* align-items: center; */
     text-align: center;
     display: inline-block;
-    margin-bottom: -3px;
-    margin-right: 4px;
-    min-width: 16%;
+    min-width: 19%;
+    font-size: 0.8rem;
 }
 
 .profile-btn:hover {
@@ -153,12 +153,13 @@ header {
 .user-logo {
     filter: brightness(0) invert(0.93);
     max-width: 13%;
-    margin-right: 0.3rem;
+    margin-right: auto;
 }
 
 
 /* forms */
 .form {
+    margin: auto;
     margin-top: 3rem;
     text-align: center;
     display: inline-block;
@@ -170,7 +171,7 @@ header {
     background-color: transparent;
     color: aliceblue;
     border: transparent;
-    border-radius: 0.03rem;
+    border-radius: 0.33rem;
     display: block;
     margin: 1.3rem 0;
     min-width: 39%;
@@ -220,8 +221,8 @@ header {
 }
 
 .login-btn {
-    position: relative;
-    left: 29%;
+    position: absolute;
+    left: 89%;
     top: 3%;
     margin-top: 0.3rem;
     padding: 0.23rem 0.3rem;
@@ -231,10 +232,17 @@ header {
     text-align: center;
     display: inline-block;
     min-width: 9%;
+    font-size: 0.8rem;
 }
 
 .login-btn:hover {
     box-shadow: 0.03rem 0.03rem 0.06rem 0.06rem #c1c1c2;
+
+}
+
+.login-title {
+
+    margin: auto;
 
 }
 
@@ -253,4 +261,87 @@ header {
     min-height: 0.3rem;
     padding: 0.3rem 0;
     margin: 1.3rem auto;
+}
+
+.logout-btn {
+    background-color: rgb(167, 51, 51);
+    color: aliceblue;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    position: absolute;
+    bottom: 10%;
+    right: 45%;
+    left: 45%;
+}
+
+.loading-container {
+    /* padding: 0.3rem; */
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner {
+    position: absolute;
+    right: 47.5%;
+    left: 47.5%;
+    margin: auto;
+    top: 26%;
+    width: 23px;
+    height: 23px;
+    border: 6px solid #a9adaf;
+    /* Light grey */
+    border-top: 6px solid #313030;
+    /* Black */
+    border-radius: 50%;
+    animation: spinner 1.5s linear infinite;
+}
+
+@media only screen and (max-width: 720px) {
+    h2 {
+        text-align: center;
+        margin: auto;
+        padding: 0;
+        font-size: smaller;
+        position: relative;
+        left: 13%;
+    }
+
+    .navbar {
+        padding: 0;
+    }
+
+    .home-logo {
+        position: relative;
+        min-width: 9%;
+        right: 50%;
+        margin-top: 0.13rem;
+
+    }
+
+    .login-btn {
+        position: relative;
+        left: 18%;
+    }
+
+    .input {
+        border: solid;
+        border-color: rgb(209, 209, 209);
+        border-width: 0.03rem;
+    }
+
+    .form-btn {
+        border: solid;
+        border-color: aliceblue;
+        border-width: 0.00003rem;
+        margin-bottom: 0.13rem;
+    }
+
 }
